@@ -1,37 +1,40 @@
 #!/usr/bin/python3
-""" Script that starts a Flask web application """
+"""module containing function hello_world"""
 from flask import Flask
+
 
 app = Flask(__name__)
 app.url_map.strict_slashes = False
 
 
 @app.route('/')
-def hello_hbnb():
-    """ Print Web """
-    return 'Hello HBNB!'
+def hello():
+    """function to return the default page of web server"""
+    return "Hello HBNB!"
 
 
 @app.route('/hbnb')
 def hbnb():
-    """ Print Web """
-    return 'HBNB'
+    """display hbnb"""
+    return "HBNB"
 
 
 @app.route('/c/<text>')
-def c_is_fun(text):
-    """ Print a char C followed by the value of the text variable """
-    return 'C {}'.format(text.replace('_', ' '))
+def display_c(text):
+    """display web"""
+    if '_' in text:
+        text = text.replace('_', ' ')
+    return "C {}".format(text)
 
 
 @app.route('/python')
 @app.route('/python/<text>')
-def python_is_cool(text='is cool'):
-    """ Print Python, followed by the value of the text variable,
-    with default value of text: is cool"""
-    return 'Python {}'.format(text.replace('_', ' '))
+def display_python(text='is cool'):
+    """display web"""
+    if '_' in text:
+        text = text.replace('_', ' ')
+    return "Python {}".format(text)
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
-    app.run(host='0.0.0.0', port=5000)
+    app.run(debug=True, host='0.0.0.0', port=5000)

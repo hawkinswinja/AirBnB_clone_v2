@@ -1,1 +1,2 @@
-- 0x04. AirBnB clone - Web framework
+web framework using flask
+introduction to creating dynamic application server using flask and jinja
