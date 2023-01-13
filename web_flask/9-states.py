@@ -21,7 +21,7 @@ def get_states(id=None):
 
 
 @app.teardown_appcontext
-def close_app():
+def close_app(exc):
     """close current sqlalchemy session"""
     storage.close()
 
